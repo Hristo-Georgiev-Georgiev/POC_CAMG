@@ -1,0 +1,35 @@
+<h1 id="tableLabel">Restaurants</h1>
+
+<p>This component demonstrates fetching Restaurants from the MongoDB Atlas.</p>
+
+<div class="options-bar">
+  
+  <div>
+    <textarea [(ngModel)]="searchBoxInput" contenteditable="true" placeholder="Find a restaurant"></textarea>
+    <button (click)="onSearchButtonClick()">Search</button>
+    <button (click)="ClearAndReset()">Reset</button><br>
+    <button>Add a restaurant</button>
+  </div>
+</div>
+
+
+<p *ngIf="!restaurants"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="restaurants">
+  <thead>
+    <tr>
+      <th>Address</th>
+      <th>Borough</th>
+      <th>Cuisine</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let restaurant of restaurants">
+      <td>{{ restaurant.address.street }}</td>
+      <td>{{ restaurant.borough }}</td>
+      <td>{{ restaurant.cuisine }}</td>
+      <td>{{ restaurant.name }}</td>
+    </tr>
+  </tbody>
+</table>

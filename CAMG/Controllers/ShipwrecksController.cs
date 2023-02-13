@@ -20,7 +20,7 @@ namespace CAMG.Controllers
             //var filter = new BsonDocument("depth", new BsonDocument("$gt", 1));
             //var specificItem = collection.Find(filter);
 
-            return collection.Find(x => x.Feature == "Wrecks - Visible").ToList();
+            return collection.AsQueryable().ToList();
         }
     }
 }
